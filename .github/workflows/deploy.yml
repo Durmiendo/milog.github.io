@@ -2,7 +2,7 @@ name: Deploy VitePress site to Pages
 
 on:
   push:
-    branches: [main] # или master, смотря какая у вас ветка
+    branches: [master]
 
 permissions:
   contents: read
@@ -25,13 +25,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm # или yarn / pnpm
+          cache: npm
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
         run: npm install
       - name: Build with VitePress
-        run: npm run docs:build # убедитесь, что в package.json есть этот скрипт
+        run: npm run docs:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
